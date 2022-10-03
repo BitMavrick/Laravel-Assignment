@@ -14,27 +14,17 @@
             </tr>
         </thead>
         <tbody>
+            <?php $sl = 1 ?>
+            @foreach ($students as $student)
             <tr>
-                <th scope="row">1</th>
-                <td>Mehedi</td>
+                <th scope="row"><?= $sl++ ?></th>
+                <td>{{$student->name}}</td>
                 <td>Male</td>
                 <td><a href="#">Show more</a></td>
             </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mehedi</td>
-                <td>Male</td>
-                <td><a href="#">Show more</a></td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mehedi</td>
-                <td>Male</td>
-                <td><a href="#">Show more</a></td>
-            </tr>
+
+            @endforeach
         </tbody>
     </table>
-
-
 
 </x-master>
