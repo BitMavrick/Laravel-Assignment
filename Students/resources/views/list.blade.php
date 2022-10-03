@@ -19,8 +19,8 @@
             <tr>
                 <th scope="row"><?= $sl++ ?></th>
                 <td>{{$student->name}}</td>
-                <td>Male</td>
-                <td><a href="#">Show more</a></td>
+                <td>{{$student->gender}}</td>
+                <td><a href="{{ route('student.details', $student->id) }}">Show more</a></td>
             </tr>
 
             @endforeach

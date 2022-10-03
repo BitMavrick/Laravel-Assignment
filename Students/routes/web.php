@@ -17,3 +17,8 @@ use App\Http\Controllers\studentsController;
 Route::get('/', [studentsController::class, 'students'])->name('students');
 Route::get('create/', [studentsController::class, 'create'])->name('create');
 Route::post('store/', [studentsController::class, 'store'])->name('store');
+Route::get('/{id}', [studentsController::class, 'details'])->where('id', '[0-9]+')->name('student.details');
+
+
+// FAllback route
+Route::fallback([studentsController::class, 'students']);

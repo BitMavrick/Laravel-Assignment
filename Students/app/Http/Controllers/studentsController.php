@@ -39,4 +39,14 @@ class studentsController extends Controller
 
         return redirect()->route('students');
     }
+
+    public function details($id)
+    {
+
+        $student = student::find($id);
+
+        return view('details', [
+            'all_info' => $student
+        ]);
+    }
 }
