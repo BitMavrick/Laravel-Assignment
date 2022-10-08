@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\student;
+use Illuminate\Support\Facades\Validator;
 
 class studentsController extends Controller
 {
@@ -25,7 +26,18 @@ class studentsController extends Controller
 
     public function store(Request $request)
     {
-        //dd($request->all());
+
+        // Validator
+        $validator = Validator::make($request->all(), [
+            'name' => 'required | min:3 | max:20',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+
+
 
         student::create([
             'name' => $request->name,
