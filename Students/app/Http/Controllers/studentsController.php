@@ -55,7 +55,12 @@ class studentsController extends Controller
 
         $data = [
             'name' => $request->name,
-            'age' => $request->age,
+            'birth_date' => $request->birth_date,
+            'gender' => $request->gender,
+            'hobby1' => $request->hobby1,
+            'hobby2' => $request->hobby2,
+            'hobby3' => $request->hobby3,
+            'nationality' => $request->nationality,
         ];
         $student->update($data);
 

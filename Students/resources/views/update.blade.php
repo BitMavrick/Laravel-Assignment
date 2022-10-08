@@ -8,6 +8,7 @@
     <form action="{{ route('student.edit') }}" method="post">
         @csrf
         @method('PUT')
+        <input type="hidden" name="id" value="{{ $student->id }}">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Name</label>
             <input name="name" type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
