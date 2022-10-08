@@ -10,4 +10,8 @@
     <h4>Hobbies: {{$all_info->name}}</h4>
     <h4>Nationality: {{$all_info->nationality}}</h4>
 
+    <a href="{{ route('students') }}"><button type="button" class="btn btn-primary my-4">Update</button></a>
+    <a href="{{ route('student.delete', $all_info->id) }}"><button type="button"
+            class="btn btn-danger my-4">Delete</button></a>
+
 </x-master>

@@ -49,4 +49,12 @@ class studentsController extends Controller
             'all_info' => $student
         ]);
     }
+
+    public function delete($id)
+    {
+        $student = student::find($id);
+        $student->delete();
+
+        return redirect()->route('students');
+    }
 }
