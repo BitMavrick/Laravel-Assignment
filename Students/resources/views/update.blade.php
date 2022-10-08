@@ -1,6 +1,6 @@
 <x-master>
 
-    <h2>Create New</h2>
+    <h2>Update student</h2>
 
     <a href="{{ route('students') }}"><button type="button" class="btn btn-secondary my-4">Go To List</button></a>
 
@@ -12,13 +12,19 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Name</label>
             <input name="name" type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter name" value="{{$student->name}}">
-            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                placeholder="Enter name" value="{{old('name', $student->name )}}">
+            @error('name')
+            <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="mb-3">
             <p>Enter date of birth</p>
-            <input name="birth_date" class="form-control" type="date" value="{{$student->birth_date}}">
+            <input name="birth_date" class="form-control" type="date"
+                value="{{ old('birth_date', $student->birth_date)}}">
+            @error('birth_date')
+            <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="mb-3">
@@ -34,6 +40,9 @@
                             echo ("selected");
                         } ?> value="Pakistani">Pakistani</option>
             </select>
+            @error('nationality')
+            <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="mb-3">
@@ -64,6 +73,9 @@
                     Others
                 </label>
             </div>
+            @error('gender')
+            <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
         </div>
 
 

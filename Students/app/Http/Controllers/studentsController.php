@@ -65,6 +65,19 @@ class studentsController extends Controller
     {
         $student = student::find($request->id);
 
+        //Validator
+        $validator = Validator::make($request->all(), [
+            'name' => 'required | min:3 | max:20',
+            'birth_date' => 'required',
+            'nationality' => 'required',
+            'gender' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+
         $data = [
             'name' => $request->name,
             'birth_date' => $request->birth_date,
