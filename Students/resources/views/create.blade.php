@@ -4,14 +4,26 @@
 
     <a href="{{ route('students') }}"><button type="button" class="btn btn-secondary my-4">Go To List</button></a>
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
 
     <form action="{{ route('store') }}" method="post">
         @csrf
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Name</label>
             <input name="name" type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter name">
-            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                placeholder="Enter name" value="{{ old('name') }}">
+            @error('name')
+            <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="mb-3">

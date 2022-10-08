@@ -36,9 +36,6 @@ class studentsController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-
-
-
         student::create([
             'name' => $request->name,
             'birth_date' => $request->birth_date,
