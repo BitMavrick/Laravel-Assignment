@@ -18,12 +18,7 @@
         if ($all_info->hobby3 != null) {
             echo $all_info->hobby3 . ", ";
         }
-
-
         ?>
-
-
-
     </h4>
     <h4>Nationality: {{$all_info->nationality}}</h4>
 
