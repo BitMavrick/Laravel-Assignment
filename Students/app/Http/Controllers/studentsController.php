@@ -30,6 +30,9 @@ class studentsController extends Controller
         // Validator
         $validator = Validator::make($request->all(), [
             'name' => 'required | min:3 | max:20',
+            'birth_date' => 'required',
+            'nationality' => 'required',
+            'gender' => 'required',
         ]);
 
         if ($validator->fails()) {

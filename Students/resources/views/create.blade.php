@@ -4,17 +4,6 @@
 
     <a href="{{ route('students') }}"><button type="button" class="btn btn-secondary my-4">Go To List</button></a>
 
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
-
     <form action="{{ route('store') }}" method="post">
         @csrf
         <div class="mb-3">
@@ -28,44 +17,67 @@
 
         <div class="mb-3">
             <p>Enter date of birth</p>
-            <input name="birth_date" class="form-control" type="date">
+            <input name="birth_date" class="form-control" type="date" value="{{ old('birth_date') }}">
+            @error('birth_date')
+            <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="mb-3">
             <select name="nationality" class="form-select" aria-label="Default select example">
                 <option selected disabled>Select Nationality</option>
-                <option value="Bangladeshi">Bangladeshi</option>
-                <option value="Indian">Indian</option>
-                <option value="Pakistani">Pakistani</option>
+                <option <?php if (old('nationality') == "Bangladeshi") {
+                            echo 'selected';
+                        } ?> value="Bangladeshi">Bangladeshi</option>
+                <option <?php if (old('nationality') == "Indian") {
+                            echo 'selected';
+                        } ?> value="Indian">Indian</option>
+                <option <?php if (old('nationality') == "Pakistani") {
+                            echo 'selected';
+                        } ?> value="Pakistani">Pakistani</option>
             </select>
+            @error('nationality')
+            <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="mb-3">
             <p>Select Gender</p>
             <div class="form-check">
-                <input class="form-check-input" value="Male" type="radio" name="gender" id="flexRadioDefault1">
+                <input class="form-check-input" value="Male" type="radio" name="gender" id="flexRadioDefault1" <?php if (old('gender') == "Male") {
+                                                                                                                    echo 'checked';
+                                                                                                                } ?>>
                 <label class="form-check-label" for="flexRadioDefault1">
                     Male
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" value="Female" type="radio" name="gender" id="flexRadioDefault2">
+                <input class="form-check-input" value="Female" type="radio" name="gender" id="flexRadioDefault2"
+                    <?php if (old('gender') == "Female") {
+                                                                                                                        echo 'checked';
+                                                                                                                    } ?>>
                 <label class="form-check-label" for="flexRadioDefault2">
                     Female
                 </label>
             </div>
 
             <div class="form-check">
-                <input class="form-check-input" value="Others" type="radio" name="gender" id="flexRadioDefault3">
+                <input class="form-check-input" value="Others" type="radio" name="gender" id="flexRadioDefault3"
+                    <?php if (old('gender') == "Others") {
+                                                                                                                        echo 'checked';
+                                                                                                                    } ?>>
                 <label class="form-check-label" for="flexRadioDefault3">
                     Others
                 </label>
             </div>
+            @error('gender')
+            <div class="form-text text-danger">{{ $message }}</div>
+            @enderror
         </div>
 
 
         <div class="my-3">
-            <p>Select hobby: </p>
+            <p>Select hobby (Not mandetory):</p>
             <div class="form-check">
                 <input name="hobby1" class="form-check-input" type="checkbox" value="Travelling" id="defaultCheck1">
                 <label class="form-check-label" for="defaultCheck1">
