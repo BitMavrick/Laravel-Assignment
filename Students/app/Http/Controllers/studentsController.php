@@ -27,7 +27,7 @@ class studentsController extends Controller
     public function store(Request $request)
     {
 
-        // Validator
+        // Validator while creating a new student
         $validator = Validator::make($request->all(), [
             'name' => 'required | min:3 | max:20',
             'birth_date' => 'required',
@@ -65,7 +65,7 @@ class studentsController extends Controller
     {
         $student = student::find($request->id);
 
-        //Validator
+        //Validator while updating a student
         $validator = Validator::make($request->all(), [
             'name' => 'required | min:3 | max:20',
             'birth_date' => 'required',
@@ -76,7 +76,6 @@ class studentsController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
 
         $data = [
             'name' => $request->name,
@@ -94,7 +93,6 @@ class studentsController extends Controller
 
     public function details($id)
     {
-
         $student = student::find($id);
 
         return view('details', [
