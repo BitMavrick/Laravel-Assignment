@@ -27,6 +27,9 @@
         </tbody>
     </table>
 
-    <a href="{{ route('student.trash') }}"> <button type="button" class="btn btn-danger my-4">Recyle Bin</button></a>
+    <a href="{{ route('student.download') }}"> <button type="button" class="btn btn-primary my-4">Download
+            PDF</button></a>
+    <a href="{{ route('student.trash') }}"> <button type="button" class="btn btn-danger my-4 mx-2">Recyle
+            Bin</button></a>
 
 </x-master>

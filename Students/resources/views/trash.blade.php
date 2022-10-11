@@ -31,7 +31,7 @@
 
                         <form action="{{ route('student.clear', $student->id)}}" method="POST">
                             @csrf
-                            @method('PATCH')
+                            @method('DELETE')
                             <button type="submit" class="btn btn-danger"
                                 onclick="return confirm('Parmanently delete this student?')">Clear</button>
                         </form>
@@ -45,6 +45,8 @@
         </tbody>
     </table>
 
-    <a href="{{ route('create') }}"> <button type="button" class="btn btn-danger my-4">Restore all</button></a>
+    <a href="{{ route('students') }}"> <button type="button" class="btn btn-primary my-4">Restore all</button></a>
+    <a href="{{ route('students') }}"> <button type="button" class="btn btn-danger my-4 mx-2">Clear all</button></a>
+
 
 </x-master>

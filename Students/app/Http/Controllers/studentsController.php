@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\student;
 use Illuminate\Support\Facades\Validator;
+use Barryvdh\DomPDF\Facade\Pdf;
+
+// Command: composer require barryvdh/laravel-dompdf
 
 class studentsController extends Controller
 {
@@ -131,5 +134,14 @@ class studentsController extends Controller
         $student->forceDelete();
 
         return redirect()->route('student.trash');
+    }
+
+    public function download()
+    {
+
+        $students = student::all();
+
+        $pdf = Pdf::loadView('pdf', compact('students'));
+        return $pdf->download('students.pdf');
     }
 }
