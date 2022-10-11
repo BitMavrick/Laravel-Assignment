@@ -27,4 +27,6 @@
         </tbody>
     </table>
 
+    <a href="{{ route('create') }}"> <button type="button" class="btn btn-danger my-4">Recyle Bin</button></a>
+
 </x-master>
