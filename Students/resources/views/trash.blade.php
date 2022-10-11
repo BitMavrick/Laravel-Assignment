@@ -1,7 +1,7 @@
 <x-master>
 
-    <h2>Students list</h2>
-    <a href="{{ route('create') }}"> <button type="button" class="btn btn-primary my-4">Add New</button></a>
+    <h2>Recycle Bin</h2>
+    <a href="{{ route('students') }}"><button type="button" class="btn btn-primary my-4">Go To List</button></a>
 
 
     <table class="table">
@@ -20,13 +20,19 @@
                 <th scope="row"><?= $sl++ ?></th>
                 <td>{{$student->name}}</td>
                 <td>{{$student->gender}}</td>
-                <td><a href="{{ route('student.details', $student->id) }}">Show more</a></td>
+                <td>
+                    <form action="{{ route('student.restore', $student->id)}}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit" class="btn btn-danger">Restore</button>
+                    </form>
+                </td>
             </tr>
 
             @endforeach
         </tbody>
     </table>
 
-    <a href="{{ route('student.trash') }}"> <button type="button" class="btn btn-danger my-4">Recyle Bin</button></a>
+    <a href="{{ route('create') }}"> <button type="button" class="btn btn-danger my-4">Restore all</button></a>
 
 </x-master>

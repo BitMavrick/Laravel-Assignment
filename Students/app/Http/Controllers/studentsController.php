@@ -107,4 +107,21 @@ class studentsController extends Controller
 
         return redirect()->route('students');
     }
+
+    public function trash()
+    {
+        $students = student::onlyTrashed()->get();
+
+        return view('trash', [
+            'students' => $students
+        ]);
+    }
+
+    public function restore($id)
+    {
+        $student = student::onlyTrashed()->find($id);
+        $student->restore();
+
+        return redirect()->route('students');
+    }
 }
