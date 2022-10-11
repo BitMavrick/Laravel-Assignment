@@ -12,6 +12,8 @@ Route::put('update/', [studentsController::class, 'edit'])->name('student.edit')
 Route::get('update/{id}', [studentsController::class, 'update'])->where('id', '[0-9]+')->name('student.update');
 Route::get('trash/', [studentsController::class, 'trash'])->name('student.trash');
 Route::patch('restore/{id}', [studentsController::class, 'restore'])->where('id', '[0-9]+')->name('student.restore');
+Route::patch('clear/{id}', [studentsController::class, 'clear'])->where('id', '[0-9]+')->name('student.clear');
+
 
 
 // FAllback route

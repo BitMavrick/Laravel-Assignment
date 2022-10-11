@@ -124,4 +124,12 @@ class studentsController extends Controller
 
         return redirect()->route('students');
     }
+
+    public function clear($id)
+    {
+        $student = student::onlyTrashed()->find($id);
+        $student->forceDelete();
+
+        return redirect()->route('student.trash');
+    }
 }

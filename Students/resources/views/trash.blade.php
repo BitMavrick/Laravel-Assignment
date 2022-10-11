@@ -21,11 +21,23 @@
                 <td>{{$student->name}}</td>
                 <td>{{$student->gender}}</td>
                 <td>
-                    <form action="{{ route('student.restore', $student->id)}}" method="POST">
-                        @csrf
-                        @method('PATCH')
-                        <button type="submit" class="btn btn-danger">Restore</button>
-                    </form>
+
+                    <div class="d-flex">
+                        <form action="{{ route('student.restore', $student->id)}}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit" class="btn btn-primary mx-4">Restore</button>
+                        </form>
+
+                        <form action="{{ route('student.clear', $student->id)}}" method="POST">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit" class="btn btn-danger"
+                                onclick="return confirm('Parmanently delete this student?')">Clear</button>
+                        </form>
+
+                    </div>
+
                 </td>
             </tr>
 
