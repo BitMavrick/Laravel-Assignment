@@ -8,7 +8,7 @@
     <meta name="description"
         content="Sleek Dashboard - Free Bootstrap 4 Admin Dashboard Template and UI Kit. It is very powerful bootstrap admin dashboard, which allows you to build products like admin panels, content management systems and CRMs etc.">
 
-    <title>Ecommerce - Sleek Admin Dashboard Template</title>
+    <title> {{ $title ?? 'Welcome'}} </title>
 
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500"
@@ -1330,8 +1330,8 @@
             <footer class="footer mt-auto">
                 <div class="copyright bg-white">
                     <p>
-                        Copyright &copy; <span id="copy-year"></span> a template by <a class="text-primary"
-                            href="https://themefisher.com" target="_blank">Themefisher</a>.
+                        Copyright &copy; <span id="copy-year"></span> created by <a class="text-primary"
+                            href="https://www.mehedi-hasan.me" target="_blank">Mehedi Hasan</a>.
                     </p>
                 </div>
                 <script>
