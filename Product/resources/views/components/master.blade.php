@@ -103,11 +103,11 @@
                                             <span class="nav-text">Color</span>
                                         </a>
                                     </li>
-                                    <li class="<?php if ($_SESSION['option'] == 'product') {
+                                    <li class="<?php if ($_SESSION['option'] == 'category') {
                                                     echo 'active';
                                                 } ?>">
                                         <a class="sidenav-item-link" href="analytics.html">
-                                            <span class="nav-text">Product</span>
+                                            <span class="nav-text">Category</span>
                                         </a>
                                     </li>
                                 </div>
