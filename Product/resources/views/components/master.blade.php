@@ -94,7 +94,7 @@
                                     </li>
 
                                     <li class="">
-                                        <a class="sidenav-item-link" href="analytics.html">
+                                        <a class="sidenav-item-link" href="{{ route('color') }}">
                                             <span class="nav-text">Color</span>
                                         </a>
                                     </li>
