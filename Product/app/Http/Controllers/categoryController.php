@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\category;
+use App\Models\brand;
 use App\Models\color;
+use App\Models\category;
+
+
 
 use Illuminate\Http\Request;
 
@@ -15,7 +18,7 @@ class categoryController extends Controller
         $_SESSION['option'] = 'category';
     }
 
-    public function color()
+    public function category()
     {
         $this->session();
 
@@ -29,19 +32,26 @@ class categoryController extends Controller
     public function create()
     {
         $this->session();
-        return view('color/create');
+
+        $brands = brand::all();
+        $colors = color::all();
+        return view('category/create', [
+            'brands' => $brands,
+            'colors' => $colors,
+        ]);
     }
 
     public function store(Request $request)
     {
         $this->session();
-        $color = new color();
+        $category = new category();
 
-        $color->color_name = $request->color_name;
-        $color->color_code = $request->color_code;
-        $color->save();
+        $category->category_name = $request->category_name;
+        $category->brand_id = $request->brand_id;
+        $category->color_id = $request->color_id;
+        $category->save();
 
-        return redirect()->route('color');
+        return redirect()->route('category');
     }
 
     public function update($id)

@@ -24,7 +24,7 @@ Route::prefix('color')->group(function () {
 });
 
 Route::prefix('category')->group(function () {
-    Route::get('/', [categoryController::class, 'color'])->name('category');
+    Route::get('/', [categoryController::class, 'category'])->name('category');
     Route::get('/new', [categoryController::class, 'create'])->name('category.create');
     Route::post('/store', [categoryController::class, 'store'])->name('category.store');
     Route::put('/update', [categoryController::class, 'edit'])->name('category.edit');
