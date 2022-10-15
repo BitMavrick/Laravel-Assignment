@@ -49,6 +49,7 @@
     NProgress.start();
     </script>
 
+
     <!-- ====================================
     ——— WRAPPER
     ===================================== -->
@@ -87,18 +88,24 @@
 
                             <ul class="collapse show" id="dashboard" data-parent="#sidebar-menu">
                                 <div class="sub-menu">
-                                    <li class="active">
+                                    <li class="<?php if ($_SESSION['option'] == 'brand') {
+                                                    echo 'active';
+                                                } ?>">
                                         <a class="sidenav-item-link" href="{{ route('brand') }}">
                                             <span class="nav-text">Brand</span>
                                         </a>
                                     </li>
 
-                                    <li class="">
+                                    <li class="<?php if ($_SESSION['option'] == 'color') {
+                                                    echo 'active';
+                                                } ?>">
                                         <a class="sidenav-item-link" href="{{ route('color') }}">
                                             <span class="nav-text">Color</span>
                                         </a>
                                     </li>
-                                    <li class="">
+                                    <li class="<?php if ($_SESSION['option'] == 'product') {
+                                                    echo 'active';
+                                                } ?>">
                                         <a class="sidenav-item-link" href="analytics.html">
                                             <span class="nav-text">Product</span>
                                         </a>

@@ -4,7 +4,6 @@
         List | Color
     </x-slot>
 
-
     <h2>Color List</h2>
 
     <a href="{{ route('color.create') }}"> <button type="button" class="btn btn-primary my-4">Add New</button></a>

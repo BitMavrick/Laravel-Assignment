@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\brand;
 use App\Models\color;
 
 use Illuminate\Http\Request;
 
 class colorController extends Controller
 {
+    public function session()
+    {
+        session_start();
+        $_SESSION['option'] = 'color';
+    }
+
     public function color()
     {
+        $this->session();
+
         $colors = color::all();
 
         return view('color/color', [
@@ -20,11 +27,13 @@ class colorController extends Controller
 
     public function create()
     {
+        $this->session();
         return view('color/create');
     }
 
     public function store(Request $request)
     {
+        $this->session();
         $color = new color();
 
         $color->color_name = $request->color_name;
@@ -36,27 +45,32 @@ class colorController extends Controller
 
     public function update($id)
     {
-        $brand = color::find($id);
+        $this->session();
+        $color = color::find($id);
 
-        return view('brand/update', [
-            'brand' => $brand,
+        return view('color/update', [
+            'color' => $color,
         ]);
     }
 
     public function edit(Request $request)
     {
-        $brand = brand::find($request->id);
-        $brand->brand_name = $request->brand_name;
-        $brand->save();
+        $this->session();
+        $color = color::find($request->id);
+        $color->color_name = $request->color_name;
+        $color->color_code = $request->color_code;
 
-        return redirect()->route('brand');
+        $color->save();
+
+        return redirect()->route('color');
     }
 
     public function delete($id)
     {
-        $brand = brand::find($id);
-        $brand->delete();
+        $this->session();
+        $color = color::find($id);
+        $color->delete();
 
-        return redirect()->route('brand');
+        return redirect()->route('color');
     }
 }
