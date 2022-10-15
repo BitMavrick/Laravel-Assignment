@@ -12,14 +12,14 @@ class brandController extends Controller
     {
         $brands = brand::all();
 
-        return view('brand', [
+        return view('brand/brand', [
             'brands' => $brands,
         ]);
     }
 
     public function create()
     {
-        return view('create');
+        return view('brand/create');
     }
 
     public function store(Request $request)
@@ -35,7 +35,7 @@ class brandController extends Controller
     {
         $brand = brand::find($id);
 
-        return view('update', [
+        return view('brand/update', [
             'brand' => $brand,
         ]);
     }
