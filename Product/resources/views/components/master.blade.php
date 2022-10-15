@@ -49,8 +49,6 @@
     NProgress.start();
     </script>
 
-    <div id="toaster"></div>
-
     <!-- ====================================
     ——— WRAPPER
     ===================================== -->
@@ -1365,7 +1363,6 @@
     <script src='/assets/plugins/toastr/toastr.min.js'></script>
 
     <script src="/assets/js/sleek.js"></script>
-    <link href="/assets/options/optionswitch.css" rel="stylesheet">
 </body>
 
 </html>

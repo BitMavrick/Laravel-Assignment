@@ -17,7 +17,5 @@ Route::get('trash/', [studentsController::class, 'trash'])->name('student.trash'
 Route::patch('restore/{id}', [studentsController::class, 'restore'])->where('id', '[0-9]+')->name('student.restore');
 Route::delete('clear/{id}', [studentsController::class, 'clear'])->where('id', '[0-9]+')->name('student.clear');
 
-
-
 // FAllback route
 Route::fallback([studentsController::class, 'students']);
