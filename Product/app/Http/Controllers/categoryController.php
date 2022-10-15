@@ -84,9 +84,9 @@ class categoryController extends Controller
     public function delete($id)
     {
         $this->session();
-        $color = color::find($id);
-        $color->delete();
+        $category = category::find($id);
+        $category->delete();
 
-        return redirect()->route('color');
+        return redirect()->route('category');
     }
 }
