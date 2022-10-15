@@ -11,4 +11,6 @@ class brand extends Model
     // To create model, run: php artisan make:model brand
 
     use HasFactory;
+
+    protected $fillable = ['brand_name'];
 }

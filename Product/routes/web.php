@@ -8,4 +8,5 @@ use App\Http\Controllers\colorController;
 Route::prefix('brand')->group(function () {
     Route::get('/', [brandController::class, 'brand'])->name('brand');
     Route::get('/new', [brandController::class, 'create'])->name('brand.create');
+    Route::post('/store', [brandController::class, 'store'])->name('brand.store');
 });

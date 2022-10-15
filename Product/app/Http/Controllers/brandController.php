@@ -21,4 +21,13 @@ class brandController extends Controller
     {
         return view('create');
     }
+
+    public function store(Request $request)
+    {
+        $brand = new brand();
+        $brand->brand_name = $request->brand_name;
+        $brand->save();
+
+        return redirect()->route('brand');
+    }
 }
