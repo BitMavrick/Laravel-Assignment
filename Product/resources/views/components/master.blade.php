@@ -106,7 +106,7 @@
                                     <li class="<?php if ($_SESSION['option'] == 'category') {
                                                     echo 'active';
                                                 } ?>">
-                                        <a class="sidenav-item-link" href="analytics.html">
+                                        <a class="sidenav-item-link" href="{{ route('category') }}">
                                             <span class="nav-text">Category</span>
                                         </a>
                                     </li>

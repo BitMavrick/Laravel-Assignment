@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\brandController;
 use App\Http\Controllers\colorController;
-use App\Http\Controllers\productController;
+use App\Http\Controllers\categoryController;
 
 Route::prefix('brand')->group(function () {
     Route::get('/', [brandController::class, 'brand'])->name('brand');
@@ -21,4 +21,13 @@ Route::prefix('color')->group(function () {
     Route::put('/update', [colorController::class, 'edit'])->name('color.edit');
     Route::get('/update/{id}', [colorController::class, 'update'])->name('color.update');
     Route::get('/delete/{id}', [colorController::class, 'delete'])->where('id', '[0-9]+')->name('color.delete');
+});
+
+Route::prefix('category')->group(function () {
+    Route::get('/', [categoryController::class, 'color'])->name('category');
+    Route::get('/new', [categoryController::class, 'create'])->name('category.create');
+    Route::post('/store', [categoryController::class, 'store'])->name('category.store');
+    Route::put('/update', [categoryController::class, 'edit'])->name('category.edit');
+    Route::get('/update/{id}', [categoryController::class, 'update'])->name('category.update');
+    Route::get('/delete/{id}', [categoryController::class, 'delete'])->where('id', '[0-9]+')->name('category.delete');
 });
