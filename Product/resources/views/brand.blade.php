@@ -7,7 +7,7 @@
 
     <h2>Brand List</h2>
 
-    <a href="#"> <button type="button" class="btn btn-primary my-4">Add New</button></a>
+    <a href="{{ route('brand.create') }}"> <button type="button" class="btn btn-primary my-4">Add New</button></a>
 
     <table class="table">
         <thead>
@@ -21,14 +21,17 @@
         <tbody>
             <?php $sl = 1 ?>
 
+            @foreach ($brands as $brand)
             <tr>
                 <th class="align-middle" scope="row"><?= $sl++ ?></th>
-                <td class="align-middle">Daraz</td>
-                <td class="align-middle">10 Oct 2022</td>
+                <td class="align-middle">{{ $brand->brand_name }}</td>
+                <td class="align-middle">{{ $brand->created_at }}</td>
                 <td> <a href="#"> <button type="button" class="btn btn-primary mx-2">Update</button></a>
                     <a href="#"> <button type="button" class="btn btn-danger">Delete</button></a>
                 </td>
             </tr>
+
+            @endforeach
 
         </tbody>
     </table>
