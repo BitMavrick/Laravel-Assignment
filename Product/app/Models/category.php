@@ -11,4 +11,14 @@ class category extends Model
 
     protected $fillable = ['category_name', 'brand_id', 'color_id'];
     protected $table = 'categories';
+
+    public function brand()
+    {
+        return $this->belongsTo(brand::class);
+    }
+
+    public function color()
+    {
+        return $this->belongsTo(color::class);
+    }
 }

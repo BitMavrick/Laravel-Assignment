@@ -25,8 +25,8 @@
             <tr>
                 <th class="align-middle" scope="row"><?= $sl++ ?></th>
                 <td class="align-middle">{{ $category->category_name }}</td>
-                <td class="align-middle">{{ $category->brand_id }}</td>
-                <td class="align-middle">{{ $category->color_id }}</td>
+                <td class="align-middle">{{ $category->brand->brand_name }}</td>
+                <td class="align-middle">{{ $category->color->color_name }}</td>
                 <td> <a href="{{ route('category.update', $category->id) }}"> <button type="button"
                             class="btn btn-primary mx-2">Update</button></a>
                     <a href="{{ route('category.delete', $category->id) }}"> <button type="button"

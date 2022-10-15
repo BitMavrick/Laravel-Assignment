@@ -13,4 +13,10 @@ class brand extends Model
     use HasFactory;
 
     protected $fillable = ['brand_name'];
+
+    // Setting up relationship
+    public function category()
+    {
+        return $this->hasMany(category::class);
+    }
 }
