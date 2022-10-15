@@ -57,23 +57,28 @@ class categoryController extends Controller
     public function update($id)
     {
         $this->session();
-        $color = color::find($id);
+        $category = category::find($id);
+        $brands = brand::all();
+        $colors = color::all();
 
-        return view('color/update', [
-            'color' => $color,
+        return view('category/update', [
+            'category' => $category,
+            'brands' => $brands,
+            'colors' => $colors,
         ]);
     }
 
     public function edit(Request $request)
     {
         $this->session();
-        $color = color::find($request->id);
-        $color->color_name = $request->color_name;
-        $color->color_code = $request->color_code;
+        $category = category::find($request->id);
+        $category->category_name = $request->category_name;
+        $category->brand_id = $request->brand_id;
+        $category->color_id = $request->color_id;
 
-        $color->save();
+        $category->save();
 
-        return redirect()->route('color');
+        return redirect()->route('category');
     }
 
     public function delete($id)
