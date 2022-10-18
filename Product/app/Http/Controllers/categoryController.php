@@ -34,8 +34,10 @@ class categoryController extends Controller
         $this->session();
 
         $category = category::find($id);
+        $colors = $category->color;
         return view('category/details', [
             'category' => $category,
+            'colors' => $colors,
         ]);
     }
 
@@ -57,7 +59,7 @@ class categoryController extends Controller
         $this->session();
 
         $category = category::find($request->id);
-        $category->colors()->attach($request->color_id);
+        $category->color()->attach($request->color_id);
 
         return redirect()->route('category.details', $request->id);
     }

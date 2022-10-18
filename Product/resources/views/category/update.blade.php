@@ -32,18 +32,6 @@
             </select>
         </div>
 
-        <div class="form-group">
-            <label for="exampleFormControlSelect2">Select Color</label>
-            <select name="color_id" class="form-control" id="exampleFormControlSelect2">
-                <option disabled>Select color</option>
-                @foreach ($colors as $color)
-                <option <?php if ($category->color_id == $color->id) {
-                            echo ('selected');
-                        } ?> value="{{ $color->id }}">{{$color->color_name}}</option>
-                @endforeach
-
-            </select>
-        </div>
 
 
         <button type="submit" class="btn btn-primary mt-2">Submit</button>

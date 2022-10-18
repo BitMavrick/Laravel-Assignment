@@ -19,6 +19,6 @@ class category extends Model
 
     public function color()
     {
-        return $this->belongsTo(color::class);
+        return $this->belongsToMany(color::class);
     }
 }

@@ -12,6 +12,8 @@
     <form action="{{ route('category.add') }}" method="POST">
         @csrf
 
+        <input type="hidden" name="id" value="{{ $category->id }}">
+
         <div class="form-group">
             <label for="exampleFormControlSelect2">Select Color</label>
             <select name="color_id" class="form-control" id="exampleFormControlSelect2">
