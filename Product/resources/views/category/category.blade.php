@@ -14,7 +14,6 @@
                 <th scope="col">ID</th>
                 <th scope="col">Product Name</th>
                 <th scope="col">Brand Name</th>
-                <th scope="col">Colors</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -26,9 +25,8 @@
                 <th class="align-middle" scope="row"><?= $sl++ ?></th>
                 <td class="align-middle">{{ $category->category_name }}</td>
                 <td class="align-middle">{{ $category->brand->brand_name }}</td>
-                <td class="align-middle">{{ $category->color->color_name }}</td>
-                <td> <a href="{{ route('category.update', $category->id) }}"> <button type="button"
-                            class="btn btn-primary mx-2">Update</button></a>
+                <td> <a href="{{ route('category.details', $category->id) }}"> <button type="button"
+                            class="btn btn-primary mx-2">Details</button></a>
                     <a href="{{ route('category.delete', $category->id) }}"> <button type="button"
                             class="btn btn-danger" onclick="return confirm('Delete this category?')">Delete</button></a>
                 </td>

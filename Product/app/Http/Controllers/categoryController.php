@@ -29,6 +29,39 @@ class categoryController extends Controller
         ]);
     }
 
+    public function details($id)
+    {
+        $this->session();
+
+        $category = category::find($id);
+        return view('category/details', [
+            'category' => $category,
+        ]);
+    }
+
+    public function addColor($id)
+    {
+        $this->session();
+
+        $category = category::find($id);
+        $colors = color::all();
+
+        return view('category/add_color', [
+            'category' => $category,
+            'colors' => $colors,
+        ]);
+    }
+
+    public function add(Request $request)
+    {
+        $this->session();
+
+        $category = category::find($request->id);
+        $category->colors()->attach($request->color_id);
+
+        return redirect()->route('category.details', $request->id);
+    }
+
     public function create()
     {
         $this->session();

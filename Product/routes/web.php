@@ -25,7 +25,10 @@ Route::prefix('color')->group(function () {
 
 Route::prefix('product')->group(function () {
     Route::get('/', [categoryController::class, 'category'])->name('category');
+    Route::get('/details/{id}', [categoryController::class, 'details'])->name('category.details');
     Route::get('/new', [categoryController::class, 'create'])->name('category.create');
+    Route::get('/add_color/{id}', [categoryController::class, 'addColor'])->name('category.addColor');
+    Route::post('/add', [categoryController::class, 'add'])->name('category.add');
     Route::post('/store', [categoryController::class, 'store'])->name('category.store');
     Route::put('/update', [categoryController::class, 'edit'])->name('category.edit');
     Route::get('/update/{id}', [categoryController::class, 'update'])->name('category.update');
