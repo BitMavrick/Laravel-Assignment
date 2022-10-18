@@ -1,10 +1,10 @@
 <x-master>
 
     <x-slot name="title">
-        List | Category
+        List | Product
     </x-slot>
 
-    <h2>Category List</h2>
+    <h2>Product List</h2>
 
     <a href="{{ route('category.create') }}"> <button type="button" class="btn btn-primary my-4">Add New</button></a>
 
@@ -12,9 +12,9 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Category Name</th>
+                <th scope="col">Product Name</th>
                 <th scope="col">Brand Name</th>
-                <th scope="col">Color</th>
+                <th scope="col">Colors</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>

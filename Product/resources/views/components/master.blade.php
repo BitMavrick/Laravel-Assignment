@@ -107,7 +107,7 @@
                                                     echo 'active';
                                                 } ?>">
                                         <a class="sidenav-item-link" href="{{ route('category') }}">
-                                            <span class="nav-text">Category</span>
+                                            <span class="nav-text">Product</span>
                                         </a>
                                     </li>
                                 </div>

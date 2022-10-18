@@ -23,7 +23,7 @@ Route::prefix('color')->group(function () {
     Route::get('/delete/{id}', [colorController::class, 'delete'])->where('id', '[0-9]+')->name('color.delete');
 });
 
-Route::prefix('category')->group(function () {
+Route::prefix('product')->group(function () {
     Route::get('/', [categoryController::class, 'category'])->name('category');
     Route::get('/new', [categoryController::class, 'create'])->name('category.create');
     Route::post('/store', [categoryController::class, 'store'])->name('category.store');

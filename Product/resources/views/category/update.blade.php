@@ -1,20 +1,20 @@
 <x-master>
 
     <x-slot name="title">
-        Update | Color
+        Update | Product
     </x-slot>
 
 
-    <h2>Update Color</h2>
+    <h2>Update Product</h2>
 
-    <a href="{{ route('color') }}"> <button type="button" class="btn btn-secondary my-4">colors</button></a>
+    <a href="{{ route('category') }}"> <button type="button" class="btn btn-secondary my-4">Products</button></a>
 
     <form action="{{ route('category.edit') }}" method="POST">
         @csrf
         @method('PUT')
         <input type="hidden" name="id" value="{{ $category->id }}">
         <div class="form-group">
-            <label for="exampleInputEmail1">Category Name</label>
+            <label for="exampleInputEmail1">Product Name</label>
             <input name="category_name" type="text" class="form-control" id="exampleInputEmail1"
                 aria-describedby="emailHelp" value="{{ $category->category_name }}">
             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
